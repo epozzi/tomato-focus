@@ -1,4 +1,3 @@
-// econtrar botão adicionar tarefa
 const btnAdicionarTarefa = document.querySelector('.app__button--add-task');
 const formAdicionarTarefa = document.querySelector('.app__form-add-task');
 const textareaTarefa = document.querySelector('.app__form-textarea');
@@ -6,7 +5,6 @@ const ulTarefas = document.querySelector('.app__section-task-list');
 const ulTarefasDoing = document.querySelector('.app__section-task-list-doing');
 const ulTarefasDone = document.querySelector('.app__section-task-list-done');
 const btnCancelarAdicaoTarefa = document.querySelector('.app__form-footer__button--cancel');
-// const paragrafoDescricaoTarefa = document.querySelector('.app__section-active-task-description');
 
 const btnRemoverConcluidas = document.querySelector('#btn-remover-concluidas');
 const btnRemoverTodas = document.querySelector('#btn-remover-todas');
@@ -121,26 +119,6 @@ function criarElementoTarefa(tarefa) {
         li.classList.add('app__section-task-list-item-complete')
         botao.setAttribute('disabled', 'disabled')
     }
-    // } else {
-    //     li.onclick = () => {
-    //         document.querySelectorAll('.app__section-task-list-item-active')
-    //             .forEach(li => {
-    //                 li.classList.remove('app__section-task-list-item-active')
-    //             })
-
-    //         if (tarefaSelectionada == tarefa) {
-    //             tarefaSelectionada = null;
-    //             liTarefaSelectionada = null;
-    //             paragrafoDescricaoTarefa.textContent = null;
-    //             return
-    //         }
-
-    //         tarefaSelectionada = tarefa;
-    //         liTarefaSelectionada = li;
-    //         paragrafoDescricaoTarefa.textContent = tarefa.descricao;
-    //         li.classList.add('app__section-task-list-item-active')
-    //     }
-    // }
 
     li.ondragstart = (e) => {
         drag(e)
@@ -176,7 +154,7 @@ formAdicionarTarefa.addEventListener('submit', (evento) => {
     esconderFormTarefa();
 })
 
-// Diferenã do onclick para o addEventListener é que:
+// Diferença do onclick para o addEventListener é que:
 // onclick - seta a ação assim que a página carrega, se declarado mais de uma vez a última prevalece
 // addEventListener - fica escutando os eventos no elemento e só aplica ao acontecer o evento
 // pode declarar várias ações para o mesmo evento que todas acontecem e não sobrescreve
