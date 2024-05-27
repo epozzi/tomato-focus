@@ -145,7 +145,7 @@ function mostrarTempo() {
 }
 
 async function apresentarFraseMotivacional() {
-    intervaloFrase = setInterval(mostrarFrase, 10000);
+    intervaloFrase = setInterval(mostrarFrase, 60000);
 }
 
 let contAgua = 5;
