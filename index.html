@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-contexto="lilas">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TomatoFocus</title>
+    <link rel="shortcut icon" href="./imagens/tomato.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+    <script src="./script-crud.js" defer></script>
+</head>
+
+<body>
+    <main class="app">
+        <header class="app__header">
+
+            <div class="app__header__color-selector-wrapper">
+                <div class="color__dropdown-container">
+                    <button class="app_button-config">
+                        <img src="/imagens/gear.svg" alt="">
+                    </button>
+                    <ul class="color-selector__ul hidden">
+                        <li class="color-selector__item">
+                            <button class="color-selector__item__button lilas" id="color-button-lilas">
+                            </button>
+                            <p>Lilás</p>
+                        </li>
+                        <li class="color-selector__item">
+                            <button class="color-selector__item__button amarelo" id="color-button-amarelo">
+                            </button>
+                            <p>Amarelo</p>
+                        </li>
+                        <li class="color-selector__item">
+                            <button class="color-selector__item__button verde" id="color-button-verde">
+                            </button>
+                            <p>Verde</p>
+                        </li>
+                        <li class="color-selector__item">
+                            <button class="color-selector__item__button azul" id="color-button-azul">
+                            </button>
+                            <p>Azul</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section class="app__section-banner-container">
+            <h1 class="app__title">
+                Foque em suas atividades,<br>
+                <strong class="app__title-strong">ouvindo suas preferidas.</strong>
+            </h1>
+            <div class="app__music-player">
+                <label for="playlist">Escolha sua playlist ou artista no spotfy</label>
+                <input class="music-player__input" id="playlist" type="text">
+                <div class="embed-player">
+                    <iframe class="spotify-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5z9CdKSqJjAt30rhTlRDZX?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" volume="0.5"></iframe>
+                </div>
+            </div>
+            <!-- <figure class="app__image-figure">
+                <img class="app__image" src="/imagens/foco.png" alt="">
+            </figure> -->
+        </section>
+        <div class="timer-task-wrapper">
+            <section class="app__section-card-container">
+                <div class="app__card">
+                    <ul class="app__card-list">
+                        <li class="app__card-list-item">
+                            <button data-contexto="foco" class="app__card-button app__card-button--foco active">Foco</button>
+                        </li>
+                        <li class="app__card-list-item">
+                            <button data-contexto="short" class="app__card-button app__card-button--curto">Descanso curto</button>
+                        </li>
+                        <li class="app__card-list-item">
+                            <button data-contexto="long" class="app__card-button app__card-button--longo">Descanso longo</button>
+                        </li>
+                    </ul>
+                    <div id="timer" class="app__card-timer"></div>
+                    <div class="app__card-primary-button-wrapper">
+                        <button id="start-pause" class="app__card-primary-button">
+                            <img class="app__card-primary-butto-icon" src="/imagens/play_arrow.png" alt="">
+                            <span>Começar</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app__section-task-container">
+                <div class="app__section-task-content">
+                    <header class="app__section-active-task">
+                        <p class="app__section__frase"></p>
+                    </header>
+                    <button class="app__button--add-task">
+                        <img src="/imagens/add_circle.svg" alt=""> Adicionar nova tarefa
+                    </button>
+                    <form class="app__form-add-task hidden" aria-hidden="true">
+                        <div class="app__form-field">
+                            <label class="app__form-label">
+                                Adicionando tarefa
+                            </label>
+                            <textarea required rows="4" class="app__form-textarea" placeholder="No que você está trabalhando?"></textarea>
+                        </div>
+                        <footer class="app__form-footer">
+                            <button type="button" class="app__form-footer__button app__form-footer__button--delete">
+                                <img src="/imagens/delete.png" alt=""> Deletar
+                            </button>
+                            <div class="splitter"></div>
+                            <button type="button" class="app__form-footer__button app__form-footer__button--cancel">
+                                <img src="/imagens/close.png" alt=""> Cancelar
+                            </button>
+                            <button class="app__form-footer__button app__form-footer__button--confirm">
+                                <img src="/imagens/save.png" alt=""> Salvar
+                            </button>
+                        </footer>
+                    </form>
+                    <div class="app__section-task-header">
+                        <h2 class="app__section-tasks-heading">Lista de tarefas:</h2>
+                        <div class="dropdown-container">
+                            <button class="app_button-more">
+                                <img src="/imagens/more.svg" alt="">
+                            </button>
+                            <ul class="app__section-task-header__ul">
+                                <li class="app__section-task-header__li">
+                                    <button class="app__section-task-header__li__button" id="btn-remover-concluidas">
+                                        <img src="/imagens/check.svg" alt="">
+                                        Limpar tarefas concluídas
+                                    </button>
+                                </li>
+                                <li class="app__section-task-header__li">
+                                    <button class="app__section-task-header__li__button" id="btn-remover-todas">
+                                        <img src="/imagens/trash.svg" alt="">
+                                        Limpar todas as tarefas
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="app__section-task-board">
+                        <div class="app__section-task-todo">
+                            <h3 class="task-board__title">To Do</h3>
+                            <ul class="app__section-task-list"></ul>
+                        </div>
+                        <!-- <span>&raquo;</span> -->
+                        <div class="app__section-task-doing">
+                            <h3 class="task-board__title">Doing</h3>
+                            <ul class="app__section-task-list-doing"></ul>
+                        </div>
+                        <!-- <span>&raquo;</span> -->
+                        <div class="app__section-task-done">
+                            <h3 class="task-board__title">Done</h3>
+                            <ul class="app__section-task-list-done"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="app__footer">
+            <p class="app__footer-text">
+                Protótipo aplicativo para método pomodoro.
+            </p>
+        </footer>
+    </main>
+
+    <script src="DragDropTouch.js"></script>
+
+</body>
+
+</html>
